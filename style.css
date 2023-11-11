@@ -1,92 +1,145 @@
-html {
+html, body, div, span, applet, object, iframe,
+h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
     font-size: 16px;
-  
+    font: inherit;
+    vertical-align: baseline;
 }
 
-body {
-    font-family: 'NewEdge', Arial, sans-serif;
-    font-size: 16px;
-    overflow-x: hidden;
-    padding: 0px 16px;
+
+:root {
+    --body: 1rem;
+    --h1: 2.25rem;
+    --h2: 1.25rem;
+    --button-padding: 16px 15px 18px 16px;
+    --set-gap: 0.75rem;
+}
+
+p{
+    padding: 0;
     margin: 0;
-    width: 20px;
-    
+}
+
+html {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    hyphens: auto;
+    word-wrap: break-word;
+    color: black;
 }
 
 @font-face {
     font-family: 'NewEdge';
     src: url('newedge.otf') format('opentype');
-    font-weight: normal;
 }
 
-h1, .input-label, .input-value, .result {
+body,
+.input-container,
+.input-set,
+.results-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.625rem;
+}
+
+body {
+    font-family: 'NewEdge', Arial, sans-serif;
+    padding: 3.75rem 1rem;
+    gap: 2.625rem;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: var(--h2);
+    outline: none;
+    padding: var(--button-padding);
     text-align: center;
 }
 
 h1 {
-    font-size: 2.25rem;
-    line-height: 100%;
-    padding: 0;
+    size: var(--h1);
+}
+
+h1,
+.input-label {
     margin: 0;
-    width: 20px
-}
-
-
-.wrapper, .input-container, .input-field {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: red;
-    width: 20px;
-    overflow-x: hidden;
-}
-
-.wrapper {
-    padding-top: 2.5rem; 
-    gap: 2.625rem;  
-
+    padding: 0;
+    text-align: center;
 }
 
 .input-container {
-    overflow-x: hidden;
-    max-width: 100%;
     gap: 1.875rem;
-    background-color: #4CAF50;
-    width: 20px;
+}
+
+.input-set {
+    gap: var(--set-gap);
+}
+
+.input-label {
+    size: 1rem;
 }
 
 .input-field {
-    background-color: grey;
-    width: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    outline: none;
+    padding: 10px 11px 10px 9px;
+    text-align: center;
 }
 
-
-.input-label {
-    background-color: blueviolet;
-    font-size: 1rem;
-}
-
-label {
-    font-weight: regular;
-    margin-bottom: 5px;
-    display: block;
-}
-
-input {
-    width: 20px;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-button {
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+input::placeholder {
+    opacity: 1;
+    font-weight: normal;
+    color: black;
+    text-align: center;
 }
 
 .results-container {
- width: 20px;
- overflow-x: hidden;
+    display: none;
+}
+
+.results-shown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.result-set {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    gap: var(--set-gap);
+}
+
+.result-label,
+#personCost,
+#totalCost {
+    text-align: center;
+    width: 100%;
+}
+
+#personCost,
+#totalCost {
+    width: auto;
+    font-size: var(--h2);
 }
