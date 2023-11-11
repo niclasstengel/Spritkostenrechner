@@ -1,0 +1,92 @@
+html {
+    font-size: 16px;
+  
+}
+
+body {
+    font-family: 'NewEdge', Arial, sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    padding: 0px 16px;
+    margin: 0;
+    width: 20px;
+    
+}
+
+@font-face {
+    font-family: 'NewEdge';
+    src: url('newedge.otf') format('opentype');
+    font-weight: normal;
+}
+
+h1, .input-label, .input-value, .result {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.25rem;
+    line-height: 100%;
+    padding: 0;
+    margin: 0;
+    width: 20px
+}
+
+
+.wrapper, .input-container, .input-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: red;
+    width: 20px;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    padding-top: 2.5rem; 
+    gap: 2.625rem;  
+
+}
+
+.input-container {
+    overflow-x: hidden;
+    max-width: 100%;
+    gap: 1.875rem;
+    background-color: #4CAF50;
+    width: 20px;
+}
+
+.input-field {
+    background-color: grey;
+    width: 20px;
+}
+
+
+.input-label {
+    background-color: blueviolet;
+    font-size: 1rem;
+}
+
+label {
+    font-weight: regular;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input {
+    width: 20px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.results-container {
+ width: 20px;
+ overflow-x: hidden;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spritkostenrechner</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- <h1>Spritkostenrechner</h1> -->
+        <div class="input-container">
+            <div class="input-field">
+                <label class="input-label" for="distance">Strecke (km)</label>
+                <input type="number" id="distance" placeholder="Enter distance">
+            </div>
+            <div class="input-field">
+                <label class="input-label"  for="consumption">Geschätzter Verbrauch (l/100km)</label>
+                <input type="number" id="consumption" placeholder="Enter consumption">
+            </div>
+            <div class="input-field">
+                <label class="input-label"  for="price">Dieselpreis (€)</label>
+                <input type="number" id="price" placeholder="Enter diesel price">
+            </div>
+            <div class="input-field">
+                <label class="input-label"  for="persons">Personenanzahl</label>
+                <input type="number" id="persons" placeholder="Enter number of persons">
+            </div>
+    
+            <button onclick="calculateCost()">Ausrechnen</button>
+    
+        </div>
+    
+        <div class="results-container" id="results">
+            <p class="totalCostParagraph">Gesamtpreis<span id="totalCost"></span> €</p>
+            <p class="personCostParagraph">Personenpreis<span id="personCost"></span> €</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

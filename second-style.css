@@ -1,0 +1,145 @@
+html, body, div, span, applet, object, iframe,
+h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 16px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+:root {
+    --body: 1rem;
+    --h1: 2.25rem;
+    --h2: 1.25rem;
+    --button-padding: 16px 15px 18px 16px;
+    --set-gap: 0.75rem;
+}
+
+p{
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    hyphens: auto;
+    word-wrap: break-word;
+    color: black;
+}
+
+@font-face {
+    font-family: 'NewEdge';
+    src: url('newedge.otf') format('opentype');
+}
+
+body,
+.input-container,
+.input-set,
+.results-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.625rem;
+}
+
+body {
+    font-family: 'NewEdge', Arial, sans-serif;
+    padding: 3.75rem 1rem;
+    gap: 2.625rem;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: var(--h2);
+    outline: none;
+    padding: var(--button-padding);
+    text-align: center;
+}
+
+h1 {
+    size: var(--h1);
+}
+
+h1,
+.input-label {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.input-container {
+    gap: 1.875rem;
+}
+
+.input-set {
+    gap: var(--set-gap);
+}
+
+.input-label {
+    size: 1rem;
+}
+
+.input-field {
+    border: 2px solid black;
+    border-radius: 8px;
+    outline: none;
+    padding: 10px 11px 10px 9px;
+    text-align: center;
+}
+
+input::placeholder {
+    opacity: 1;
+    font-weight: normal;
+    color: black;
+    text-align: center;
+}
+
+.results-container {
+    display: none;
+}
+
+.results-shown {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.result-set {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    gap: var(--set-gap);
+}
+
+.result-label,
+#personCost,
+#totalCost {
+    text-align: center;
+    width: 100%;
+}
+
+#personCost,
+#totalCost {
+    width: auto;
+    font-size: var(--h2);
+}
