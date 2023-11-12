@@ -17,6 +17,25 @@ function formatPriceInput(inputElement) {
     inputElement.classList.add('input-field');
 }
 
+function formatConsumptionInput(inputElement) {
+    // Entferne den Dezimalpunkt aus dem eingegebenen Wert
+    var actualValue = inputElement.value.replace('.', '');
+
+    // Interpretiere den Wert als Ganzzahl und teile durch 100
+    var parsedValue = parseInt(actualValue) / 10;
+
+    // Überprüfe, ob der eingegebene Wert 0 ist
+    if (parsedValue === 0 || parsedValue === 0.0) {
+        inputElement.value = '0.00';
+    } else {
+        // Formatieren Sie den Wert mit zwei Dezimalstellen
+        inputElement.value = parsedValue.toFixed(1);
+    }
+
+    // Fügen Sie die 'input-field'-Klasse wieder hinzu
+    inputElement.classList.add('input-field');
+}
+
 // Ändere deine calculateCost-Funktion wie folgt
 function calculateCost() {
     // Get input values
@@ -30,7 +49,7 @@ function calculateCost() {
     var price = parseFloat(rawPrice);
 
     // Teile den eingegebenen Wert durch 100 (wie in deinem vorherigen Code)
-    price /= 100;
+    price;
 
     var persons = parseFloat(document.getElementById("persons").value.replace(',', '.'));
 
