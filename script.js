@@ -1,16 +1,30 @@
 var isButtonClicked = false;
 
-
 function scrollToResults() {
     var resultsContainer = document.getElementById('results');
     resultsContainer.scrollIntoView({ behavior: 'smooth' });
 }
 
+function formatPriceInput(inputElement) {
+    var value = inputElement.value.replace(',', '.');
+
+    // Füge das Komma ein, wenn die erste Ziffer eingegeben wird
+    if (value.length === 1) {
+        inputElement.value = '0' + value;
+    } else if (value.length > 1) {
+        // Füge das Komma ein, wenn mehr als eine Ziffer vorhanden ist
+        inputElement.value = value.slice(0, -2) + '.' + value.slice(-2);
+    }
+}
+
+
 function calculateCost() {
     // Get input values
     var distance = parseFloat(document.getElementById("distance").value.replace(',', '.'));
     var consumption = parseFloat(document.getElementById("consumption").value.replace(',', '.'));
-    var price = parseFloat(document.getElementById("price").value.replace(',', '.'));
+    var priceInput = document.getElementById("price");
+    formatPriceInput(priceInput);
+    var price = parseFloat(priceInput.value.replace(',', '.'));
     var persons = parseFloat(document.getElementById("persons").value.replace(',', '.'));
 
     // Check if any input is empty
@@ -46,10 +60,10 @@ function calculateCost() {
     totalCostElement.innerText = isTotalCostCalculated ? totalCost.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €" : "";
     personCostElement.innerText = isPersonCostCalculated ? personCost.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €" : "";
     scrollToResults();
-
 }
 
-
-
-
-
+// Füge das Formatieren-Event für das Price-Input hinzu
+var priceInput = document.getElementById("price");
+priceInput.addEventListener('input', function () {
+    formatPriceInput(priceInput);
+});
