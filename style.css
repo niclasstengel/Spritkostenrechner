@@ -104,6 +104,8 @@ h1,
     outline: none;
     padding: 10px 11px 10px 9px;
     text-align: center;
+    font-size: 1rem; 
+
 }
 
 input::placeholder {
@@ -111,6 +113,7 @@ input::placeholder {
     font-weight: normal;
     color: black;
     text-align: center;
+    font-size: 1rem;
 }
 
 .results-container {
