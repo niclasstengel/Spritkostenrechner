@@ -103,14 +103,12 @@ h1,
     border-radius: 8px;
     outline: none;
     padding: 10px 11px 10px 9px;
-    /* font-size: 1rem; */
     text-align: center;
 }
 
 input::placeholder {
     opacity: 1;
     font-weight: normal;
-    /* yes */
     color: black;
     text-align: center;
 }
