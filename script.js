@@ -1,58 +1,65 @@
-var isButtonClicked = false;
-
-function scrollToResults() {
-    var resultsContainer = document.getElementById('results');
-    resultsContainer.scrollIntoView({ behavior: 'smooth' });
-}
-
 function formatPriceInput(inputElement) {
-    var value = inputElement.value.replace(',', '.');
+    // Entferne den Dezimalpunkt aus dem eingegebenen Wert
+    var actualValue = inputElement.value.replace('.', '');
 
-    // Füge das Komma ein, wenn die erste Ziffer eingegeben wird
-    if (value.length === 1) {
-        inputElement.value = '0' + value;
-    } else if (value.length > 1) {
-        // Füge das Komma ein, wenn mehr als eine Ziffer vorhanden ist
-        inputElement.value = value.slice(0, -2) + '.' + value.slice(-2);
+    // Interpretiere den Wert als Ganzzahl und teile durch 100
+    var parsedValue = parseInt(actualValue) / 100;
+
+    // Überprüfe, ob der eingegebene Wert 0 ist
+    if (parsedValue === 0 || parsedValue === 0.0) {
+        inputElement.value = '0.00';
+    } else {
+        // Formatieren Sie den Wert mit zwei Dezimalstellen
+        inputElement.value = parsedValue.toFixed(2);
     }
+
+    // Fügen Sie die 'input-field'-Klasse wieder hinzu
+    inputElement.classList.add('input-field');
 }
 
-
+// Ändere deine calculateCost-Funktion wie folgt
 function calculateCost() {
     // Get input values
     var distance = parseFloat(document.getElementById("distance").value.replace(',', '.'));
     var consumption = parseFloat(document.getElementById("consumption").value.replace(',', '.'));
-    var priceInput = document.getElementById("price");
-    formatPriceInput(priceInput);
-    var price = parseFloat(priceInput.value.replace(',', '.'));
+    
+    // Hier die Rohdaten (ohne Formatierung) des Preises erhalten
+    var rawPrice = document.getElementById("price").value;
+
+    // Konvertiere die Rohdaten in eine Dezimalzahl
+    var price = parseFloat(rawPrice);
+
+    // Teile den eingegebenen Wert durch 100 (wie in deinem vorherigen Code)
+    price /= 100;
+
     var persons = parseFloat(document.getElementById("persons").value.replace(',', '.'));
 
-    // Check if any input is empty
-    if (distance === "" || consumption === "" || price === "") {
+    // Überprüfe, ob alle Eingaben gültige Zahlen sind
+    if (isNaN(distance) || isNaN(consumption) || isNaN(price) || isNaN(persons)) {
         alert("Bitte fülle alle Felder aus.");
         return;
     }
 
-    // Calculate total cost
+    // Berechne den Gesamtpreis
     var totalCost = (consumption / 100) * distance * price;
 
-    // Calculate cost per person
+    // Berechne den Preis pro Person
     var personCost = totalCost / persons;
 
     // Variablen am Anfang der Funktion deklarieren
-    var isTotalCostCalculated = totalCost !== undefined && !isNaN(totalCost);
-    var isPersonCostCalculated = personCost !== undefined && !isNaN(personCost);
+    var isTotalCostCalculated = !isNaN(totalCost);
+    var isPersonCostCalculated = !isNaN(personCost);
 
     isButtonClicked = true;
 
-    // Display results
+    // Zeige die Ergebnisse an
     var totalCostElement = document.getElementById("totalCost");
     var personCostElement = document.getElementById("personCost");
     var resultsContainer = document.getElementById("results");
 
     // Überprüfe, ob ein Ergebnis vorhanden ist
-    isTotalCostCalculated = totalCost !== undefined && !isNaN(totalCost);
-    isPersonCostCalculated = personCost !== undefined && !isNaN(personCost);
+    isTotalCostCalculated = !isNaN(totalCost);
+    isPersonCostCalculated = !isNaN(personCost);
 
     resultsContainer.classList.toggle('results-shown', isButtonClicked);
 
@@ -61,9 +68,3 @@ function calculateCost() {
     personCostElement.innerText = isPersonCostCalculated ? personCost.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €" : "";
     scrollToResults();
 }
-
-// Füge das Formatieren-Event für das Price-Input hinzu
-var priceInput = document.getElementById("price");
-priceInput.addEventListener('input', function () {
-    formatPriceInput(priceInput);
-});

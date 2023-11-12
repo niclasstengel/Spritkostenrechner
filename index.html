@@ -35,23 +35,21 @@
     <div class="input-container">
         <div class="input-set">
             <label class="input-label" for="distance">Strecke (km)</label>
-            <input class="input-field" type="text" id="distance" placeholder=""
-                oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
+            <input class="input-field" type="text" id="distance" placeholder=""oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
         </div>
         <div class="input-set">
             <label class="input-label" for="distance">Geschätzter Verbrauch (l/100km)</label>
-            <input class="input-field" type="text" id="consumption" placeholder=""
-                oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
+            <input class="input-field" type="text" id="consumption" placeholder=""oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
         </div>
         <div class="input-set">
-            <label class="input-label" for="distance">Spritpreis (€)</label>
-            <input class="input-field" type="text" id="price" placeholder=""
-                oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
+            <label class="input-label" for="distance">Spritpreis (Cent)</label>
+            <!-- <input class="input-field" type="text" id="price" placeholder=""oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric"> -->
+            <!-- <input type="number" min="0.00" max="100.00" step="0.01" class="detailsInput" id="price" name="price" placeholder="Enter Price" oninput="formatPriceInput(this)"> -->
+            <input class="input-field" type="number" min="0.00" max="100.00" step="0.01" id="price" name="price" placeholder="" oninput="formatPriceInput(this)">
         </div>
         <div class="input-set">
             <label class="input-label" for="distance">Personenanzahl</label>
-            <input class="input-field" type="text" id="persons" placeholder=""
-                oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
+            <input class="input-field" type="text" id="persons" placeholder=""oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
         </div>
         <button onclick="calculateCost()">Ausrechnen</button>
     </div>
