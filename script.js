@@ -1,5 +1,11 @@
 var isButtonClicked = false;
 
+
+function scrollToResults() {
+    var resultsContainer = document.getElementById('results');
+    resultsContainer.scrollIntoView({ behavior: 'smooth' });
+}
+
 function calculateCost() {
     // Get input values
     var distance = parseFloat(document.getElementById("distance").value.replace(',', '.'));
@@ -39,6 +45,8 @@ function calculateCost() {
     // Füge das Euro-Zeichen direkt hinzu, wenn ein Ergebnis vorhanden ist
     totalCostElement.innerText = isTotalCostCalculated ? totalCost.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €" : "";
     personCostElement.innerText = isPersonCostCalculated ? personCost.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €" : "";
+    scrollToResults();
+
 }
 
 
