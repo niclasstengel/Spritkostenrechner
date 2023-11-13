@@ -151,6 +151,10 @@ input::placeholder {
     width: 50%;
     justify-content: center;
     gap: var(--set-gap);
+    border: 1px dashed #939393;
+    padding: 1rem 0rem;
+    border-radius: 8px;
+    
 }
 
 .result-label,

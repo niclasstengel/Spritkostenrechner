@@ -16,7 +16,6 @@ function formatPriceInput(inputElement) {
     // Fügen Sie die 'input-field'-Klasse wieder hinzu
     inputElement.classList.add('input-field');
 }
-
 function formatConsumptionInput(inputElement) {
     // Entferne den Dezimalpunkt aus dem eingegebenen Wert
     var actualValue = inputElement.value.replace('.', '');
@@ -35,6 +34,38 @@ function formatConsumptionInput(inputElement) {
     // Fügen Sie die 'input-field'-Klasse wieder hinzu
     inputElement.classList.add('input-field');
 }
+
+function scrollToResults() {
+    var resultsContainer = document.getElementById('results');
+    resultsContainer.scrollIntoView({ behavior: 'smooth' });
+}
+
+function copyToClipboard(value) {
+    var tempInput = document.createElement("input");
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    var totalCostElement = document.getElementById("totalCost");
+    var personCostElement = document.getElementById("personCost");
+
+    totalCostElement.parentElement.addEventListener("click", function () {
+        var totalCostValue = totalCostElement.innerText.replace('€', '').trim();
+        copyToClipboard(totalCostValue);
+        alert("Gesamtpreis wurde in die Zwischenablage kopiert!");
+    });
+
+    personCostElement.parentElement.addEventListener("click", function () {
+        var personCostValue = personCostElement.innerText.replace('€', '').trim();
+        copyToClipboard(personCostValue);
+        alert("Preis pro Person wurde in die Zwischenablage kopiert!");
+    });
+});
+
 
 // Ändere deine calculateCost-Funktion wie folgt
 function calculateCost() {
