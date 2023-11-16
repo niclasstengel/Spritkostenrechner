@@ -35,21 +35,25 @@
     <div class="input-container">
         <div class="input-set">
             <label class="input-label" for="distance">Strecke (km)</label>
-            <input class="input-field" type="text" id="distance" placeholder=""oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
+            <input class="input-field" type="text" id="distance" placeholder=""
+                oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
         </div>
         <div class="input-set">
             <label class="input-label" for="distance">Geschätzter Verbrauch (l/100km)</label>
             <!-- <input class="input-field" type="text" id="consumption" placeholder=""oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric"> -->
-            <input class="input-field" type="number" min="0.00" max="100.00" step="0.01" id="consumption" name="price" placeholder="" oninput="formatConsumptionInput(this)">
+            <input class="input-field" type="number" min="0.00" max="100.00" step="0.01" id="consumption" name="price"
+                placeholder="" oninput="formatConsumptionInput(this)">
 
         </div>
         <div class="input-set">
             <label class="input-label" for="distance">Spritpreis (€)</label>
-            <input class="input-field" type="number" min="0.00" max="100.00" step="0.01" id="price" name="price" placeholder="" oninput="formatPriceInput(this)">
+            <input class="input-field" type="number" min="0.00" max="100.00" step="0.01" id="price" name="price"
+                placeholder="" oninput="formatPriceInput(this)">
         </div>
         <div class="input-set">
             <label class="input-label" for="distance">Personenanzahl</label>
-            <input class="input-field" type="text" id="persons" placeholder=""oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
+            <input class="input-field" type="text" id="persons" placeholder=""
+                oninput="this.value = this.value.replace(/[^0-9,.]/g, '');" inputmode="numeric">
         </div>
         <button onclick="calculateCost()">Ausrechnen</button>
     </div>
@@ -64,10 +68,20 @@
             <p id="personCost"></p>
         </div>
     </div>
+    <div class="iconButtonContainer" id="iconContainer">
+        <div class="icon-button paypal">
+            <a class="app-button" href="https://www.paypal.com" target="_blank">
+                <img class="icon" src="material/icon-paypal.png" alt="paypal-logo">
+            </a>
+        </div>
+        <div class="icon-button splitwise">
+            <a class="app-button" href="https://www.splitwise.com" target="_blank">
+                <img class="icon" src="material/icon-splitwise.png" alt="splitwise-logo">
+            </a>
+        </div>
+    </div>
+    
+    <div id="notification" class="notification"></div>
 
 </body>
-
-
-</body>
-
 </html>

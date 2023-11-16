@@ -45,6 +45,7 @@ textarea {
     --h2: 1.25rem;
     --button-padding: 16px 15px 18px 16px;
     --set-gap: 0.75rem;
+    --border-radius: 8px;
 }
 
 p{
@@ -87,7 +88,7 @@ button {
     background-color: black;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     font-size: var(--h2);
     outline: none;
     padding: var(--button-padding);
@@ -119,7 +120,7 @@ h1,
 
 .input-field {
     border: 2px solid black;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     outline: none;
     padding: 10px 11px 10px 9px;
     text-align: center;
@@ -139,10 +140,17 @@ input::placeholder {
     display: none;
 }
 
+.results-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .results-shown {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 1rem;
 }
 
 .result-set {
@@ -153,7 +161,7 @@ input::placeholder {
     gap: var(--set-gap);
     border: 1px dashed #939393;
     padding: 1rem 0rem;
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     
 }
 
@@ -168,4 +176,56 @@ input::placeholder {
 #totalCost {
     width: auto;
     font-size: var(--h2);
+}
+
+.notification {
+    position: fixed;
+    width: calc(100% - 4rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    border: 2px solid black;
+    transition: bottom 0.5s ease;
+    bottom: -50px;
+}
+
+.iconButtonContainer {
+    display: none;
+}
+
+.iconButtonContainerShow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.icon-button {
+    width: 100%;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    width: 50px;
+}
+
+.app-button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.paypal {
+    background-color: #FFD140;
+}
+
+.splitwise {
+    background-color: #ACE4D6;
 }

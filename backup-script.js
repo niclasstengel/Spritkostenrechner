@@ -126,7 +126,7 @@ function calculateCost() {
     isPersonCostCalculated = !isNaN(personCost);
 
     resultsContainer.classList.toggle('results-shown', isButtonClicked);
-    iconContainer.classList.toggle('iconButtonContainerShow', isButtonClicked);
+    iconButtonContainer.classList.toggle('results-shown', isButtonClicked);
 
 
 
